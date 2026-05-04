@@ -20,6 +20,22 @@
         <div class="particle particle-5"></div>
     </div>
 
+    <div class="bug-game" aria-label="Interactive bug smashing game">
+        <div class="bug-counter" aria-live="polite">
+            <span class="bug-counter-dot"></span>
+            <span class="bug-counter-label">Bugs smashed:</span> <span id="bug-count">0</span>
+        </div>
+        <div class="bug-field"></div>
+    </div>
+
+    <div class="bug-win-popup" role="dialog" aria-modal="true" aria-labelledby="bug-win-title" hidden>
+        <div class="bug-win-card">
+            <button class="bug-win-close" type="button" aria-label="Close popup">x</button>
+            <span class="bug-win-icon"></span>
+            <h2 id="bug-win-title">Wow you got all the BUGS !</h2>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -40,15 +56,6 @@
                         <span class="stat-number">AI</span>
                         <span class="stat-label">Powered Testing</span>
                     </div>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="code-matrix">
-                    <div class="matrix-line">01010101 01100001 01110011</div>
-                    <div class="matrix-line">function testAutomation() {</div>
-                    <div class="matrix-line">  return aiPowered;</div>
-                    <div class="matrix-line">}</div>
-                    <div class="matrix-line">01010101 01100001 01110011</div>
                 </div>
             </div>
         </div>
@@ -226,6 +233,18 @@
                     </div>
                     <p>Comprehensive automation framework for Ebay testing with AI-powered test generation and execution.</p>
                     <a href="https://github.com/Abramovichraz/ebay-qa-automation/tree/main" target="_blank" class="project-link">View on GitHub →</a>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Wikipedia Playwright Tests</h3>
+                        <div class="project-tech">
+                            <span>Playwright</span>
+                            <span>Automation</span>
+                            <span>Web Testing</span>
+                        </div>
+                    </div>
+                    <p>End-to-end automated tests for Wikipedia flows using Playwright, built for reliability and browser coverage.</p>
+                    <a href="https://github.com/Abramovichraz/wikipedia-playwright-tests" target="_blank" class="project-link">View on GitHub →</a>
                 </div>
             </div>
         </div>
