@@ -1,0 +1,18 @@
+{
+  "name": "raz-abramovich-portfolio",
+  "private": true,
+  "description": "Backend QA portfolio. Static site; the page runs its own assertion suite in the browser.",
+  "scripts": {
+    "serve": "node .claude/skills/scroll-craft/scripts/serve.mjs --root . --port 4500",
+    "verify": "node .claude/skills/scroll-craft/scripts/shoot.mjs --url http://localhost:4500 --out lab/shots",
+    "verify:mobile": "node .claude/skills/scroll-craft/scripts/shoot.mjs --url http://localhost:4500 --out lab/mobile --width 390 --height 844",
+    "verify:reduced": "node .claude/skills/scroll-craft/scripts/shoot.mjs --url http://localhost:4500 --out lab/reduced --reduced-motion",
+    "check:suite": "node scrollcraft/checks/probe.mjs 1440 900",
+    "check:faults": "node scrollcraft/checks/fault-probe.mjs",
+    "check:focus": "node scrollcraft/checks/focus.mjs",
+    "check:anchors": "node scrollcraft/checks/anchors.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.63.0"
+  }
+}

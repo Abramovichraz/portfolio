@@ -1,280 +1,299 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raz Abramovich - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Raz Abramovich · Backend QA Engineer</title>
+<meta name="description" content="Backend QA engineer. Five years testing SaaS and backend systems, release ownership, E2E automation in Playwright and Selenium. This page runs its own test suite.">
+<meta name="author" content="Raz Abramovich">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Raz Abramovich · Backend QA Engineer">
+<meta property="og:description" content="Five years testing SaaS and backend systems. This page runs its own test suite, and you can break it.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230A0D10'/><path d='M9 16.5l4.6 4.6L23 11.7' fill='none' stroke='%232FD4C6' stroke-width='3' stroke-linecap='square'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="scrollcraft.css">
+<link rel="stylesheet" href="style.css">
+<!-- The engine parks cued elements at opacity 0 and animates them from there.
+     Without scripting they would never come back, so hand them over as plain
+     content instead: every word on this page is in the markup. -->
+<noscript><style>
+  [data-sc-cue] { opacity: 1 !important; }
+  .stage { height: auto !important; padding-block: var(--sc-8); }
+  .panel--suite { max-height: none; }
+</style></noscript>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="animated-bg">
-        <div class="wallpaper-shape wallpaper-1"></div>
-        <div class="wallpaper-shape wallpaper-2"></div>
-        <div class="wallpaper-shape wallpaper-3"></div>
-        <div class="particle particle-1"></div>
-        <div class="particle particle-2"></div>
-        <div class="particle particle-3"></div>
-        <div class="particle particle-4"></div>
-        <div class="particle particle-5"></div>
+
+<a class="skip" href="#suite">Skip to the test suite</a>
+
+<span data-sc-progress></span>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<!-- ── app chrome: a status bar, not a marketing bar ───────────────────── -->
+<header class="bar" role="banner">
+  <div class="bar__id">
+    <span class="bar__dot" data-suite-dot aria-hidden="true"></span>
+    <span class="bar__name">raz-abramovich</span>
+    <span class="bar__meta">backend-qa</span>
+  </div>
+
+  <div class="bar__readout" role="status" aria-live="polite" aria-atomic="true">
+    <span class="chip" data-suite-state>idle</span>
+    <span class="bar__stat"><b data-suite-passed>0</b> passed</span>
+    <span class="bar__stat bar__stat--fail" data-suite-failed-wrap hidden><b data-suite-failed>0</b> failed</span>
+    <span class="bar__stat bar__stat--dim"><b data-suite-ms>0</b> ms</span>
+  </div>
+
+  <button class="btn btn--ghost" type="button" data-suite-run>Run suite</button>
+</header>
+
+<!-- ── app chrome: the run tree IS the navigation ──────────────────────── -->
+<nav class="tree" aria-label="Sections">
+  <ol class="tree__list">
+    <li><a href="#identity"  data-tree="identity"><i aria-hidden="true"></i>identity</a></li>
+    <li><a href="#record"    data-tree="record"><i aria-hidden="true"></i>record</a></li>
+    <li><a href="#stack"     data-tree="stack"><i aria-hidden="true"></i>stack</a></li>
+    <li><a href="#suite"     data-tree="suite"><i aria-hidden="true"></i>suite</a></li>
+    <li><a href="#artifacts" data-tree="artifacts"><i aria-hidden="true"></i>artifacts</a></li>
+    <li><a href="#contact"   data-tree="contact"><i aria-hidden="true"></i>contact</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <!-- 1 · CURIOSITY · pin. The hero is the surface already in a state. -->
+  <section id="identity" class="act" data-sc-act="pin" data-sc-span="2" data-sc-drift="#0A0D10">
+    <div data-sc-stage class="stage stage--identity">
+      <div class="panel panel--identity" data-sc-cue="0 1 0 0.3">
+
+        <div class="panel__head">
+          <svg class="mark" viewBox="0 0 32 32" role="img" aria-label="Passing check mark" data-mark>
+            <path d="M8 16.5l5 5L24 10.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/>
+          </svg>
+          <span class="panel__title">session</span>
+          <span class="panel__note" data-env-line>reading environment</span>
+        </div>
+
+        <div class="idcard">
+          <div class="field"><span class="field__k">name</span><h1 class="field__v">Raz Abramovich</h1></div>
+          <div class="field"><span class="field__k">role</span><span class="field__v">Backend QA Engineer</span></div>
+          <div class="field"><span class="field__k">based</span><span class="field__v">Netanya, Israel</span></div>
+        </div>
+
+        <p class="lede">Five years testing SaaS and backend systems. I own the release, I write the automation, and I find the thing that would have shipped.</p>
+
+        <dl class="env" data-env-grid>
+          <div><dt>viewport</dt><dd data-env="viewport">measuring</dd></div>
+          <div><dt>pointer</dt><dd data-env="pointer">measuring</dd></div>
+          <div><dt>motion</dt><dd data-env="motion">measuring</dd></div>
+          <div><dt>assertions</dt><dd data-env="assertions">10 defined</dd></div>
+        </dl>
+
+      </div>
     </div>
+  </section>
 
-    <div class="bug-game" aria-label="Interactive bug smashing game">
-        <div class="bug-counter" aria-live="polite">
-            <span class="bug-counter-dot"></span>
-            <span class="bug-counter-label">Bugs smashed:</span> <span id="bug-count">0</span>
+  <!-- 2 · CONFIDENCE · flow + in + count. Credentials are information: compress. -->
+  <section id="record" class="act sc-section section--flow">
+    <div class="sc-wrap">
+      <div data-sc-in data-sc-stagger="70">
+
+        <div class="head">
+          <h2 class="head__h">Record</h2>
+          <p class="head__sub"><span data-sc-count="0 5">0</span> years, two companies, both backend. Release approval has been mine for the last one.</p>
         </div>
-        <div class="bug-field"></div>
+
+        <ol class="posts">
+          <li class="post">
+            <div class="post__when"><span class="post__period">2025</span><span class="post__to">present</span></div>
+            <div class="post__what">
+              <h3 class="post__role">Backend QA Engineer</h3>
+              <p class="post__org">Firearc · Herzeliya Pituah</p>
+              <ul class="post__lines">
+                <li>Automates test-case generation for complex backend scenarios with AI tooling.</li>
+                <li>Sole owner of production release approval, hybrid manual and automated.</li>
+                <li>Validates cloud SaaS data paths and APIs against SQL and BigQuery.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="post">
+            <div class="post__when"><span class="post__period">2021</span><span class="post__to">2025</span></div>
+            <div class="post__what">
+              <h3 class="post__role">QA Engineer &amp; Automation</h3>
+              <p class="post__org">Bolt Tech · Petah Tikva</p>
+              <ul class="post__lines">
+                <li>Led the QA lifecycle for the Rule Engine migration off legacy onto C#.</li>
+                <li>End-to-end validation across the product and its CRM synchronisation.</li>
+                <li>Designed and maintained the Selenium (C#) E2E suite.</li>
+                <li>Found the edge cases that only appear at production scale.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+
+      </div>
     </div>
+  </section>
 
-    <div class="bug-win-popup" role="dialog" aria-modal="true" aria-labelledby="bug-win-title" hidden>
-        <div class="bug-win-card">
-            <button class="bug-win-close" type="button" aria-label="Close popup">x</button>
-            <span class="bug-win-icon"></span>
-            <h2 id="bug-win-title">Wow you got all the BUGS !</h2>
+  <!-- 3 · COMPETENCE · pan. Lateral travel reads as breadth. -->
+  <section id="stack" class="act" data-sc-act="pan" data-sc-span="3">
+    <div data-sc-stage class="stage stage--rail">
+      <div class="rail" data-sc-pan="0.05">
+
+        <div class="rail__lead">
+          <h2 class="head__h">Stack</h2>
+          <p class="rail__note">What I reach for, grouped by what it is for. Everything here has been used on a shipped system, not on a tutorial.</p>
         </div>
+
+        <article class="tool">
+          <span class="tool__k">01</span>
+          <h3 class="tool__h">Automation</h3>
+          <ul class="tool__list">
+            <li>Playwright</li><li>Selenium (C#)</li><li>PowerShell</li><li>Python</li><li>CI/CD pipelines</li>
+          </ul>
+        </article>
+
+        <article class="tool">
+          <span class="tool__k">02</span>
+          <h3 class="tool__h">Backend</h3>
+          <ul class="tool__list">
+            <li>REST APIs</li><li>Postman</li><li>SQL</li><li>BigQuery</li><li>AWS</li><li>Azure DevOps</li>
+          </ul>
+        </article>
+
+        <article class="tool">
+          <span class="tool__k">03</span>
+          <h3 class="tool__h">AI-assisted</h3>
+          <ul class="tool__list">
+            <li>ChatGPT</li><li>Claude</li><li>Gemini</li><li>LLM integration</li>
+          </ul>
+        </article>
+
+        <article class="tool">
+          <span class="tool__k">04</span>
+          <h3 class="tool__h">Method</h3>
+          <ul class="tool__list">
+            <li>Exploratory testing</li><li>Root cause analysis</li><li>E2E testing</li><li>Regression testing</li>
+          </ul>
+        </article>
+
+        <div class="rail__end">
+          <p class="rail__note">Practice areas: AI-accelerated QA workflows, cloud-native system validation, and release readiness for high-frequency delivery.</p>
+        </div>
+
+      </div>
     </div>
+  </section>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="glitch" data-text="RAZ ABRAMOVICH">RAZ ABRAMOVICH</h1>
-                <h2>Backend QA Engineer</h2>
-                <p class="hero-description">Specializing in AI-driven testing acceleration and automation frameworks</p>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Years Experience</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Projects Completed</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">AI</span>
-                        <span class="stat-label">Powered Testing</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll to explore</span>
-            <div class="scroll-arrow">↓</div>
-        </div>
-    </section>
+  <!-- 4 · COMPLICITY · pin + real controls. THE PEAK. Longest span on the page.
+       Ground: the suite is listed in its queued state before progress starts. -->
+  <section id="suite" class="act" data-sc-act="pin" data-sc-span="3.8" data-sc-drift="#0C1319">
+    <div data-sc-stage class="stage stage--suite">
+      <div class="panel panel--suite">
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-links">
-            <a href="#about" class="nav-link">About</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#experience" class="nav-link">Experience</a>
-            <a href="#certifications" class="nav-link">Certifications</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#contact" class="nav-link">Contact</a>
+        <div class="panel__head">
+          <h2 class="panel__title">Suite · this page</h2>
+          <span class="panel__note">Every assertion below runs against the live document you are reading. Nothing here is a fixture.</span>
         </div>
-    </nav>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="section-container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>QA Engineer with 5 years of experience in SaaS and Backend systems. Expert in AI-driven testing acceleration, significantly reducing regression cycles and improving bug detection through ChatGPT, Claude, and Gemini.</p>
-                    <p>Specialized in building E2E automation frameworks (Playwright, Selenium) and managing high-frequency production releases for mission-critical systems.</p>
-                </div>
-                <div class="about-cards">
-                    <div class="card">
-                        <div class="card-icon">🚀</div>
-                        <h3>AI Integration</h3>
-                        <p>Leveraging AI tools for automated test generation and bug investigation</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">⚡</div>
-                        <h3>Fast Delivery</h3>
-                        <p>Reducing time-to-market through efficient automation strategies</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">🛡️</div>
-                        <h3>Reliability</h3>
-                        <p>Ensuring system stability and zero-downtime deployments</p>
-                    </div>
-                </div>
-            </div>
+        <ol class="checks" data-checks>
+          <!-- rows are written by script.js from the real check definitions -->
+        </ol>
+
+        <div class="verdict" data-verdict hidden>
+          <p class="verdict__line"><span class="verdict__state" data-verdict-state>passed</span><span data-verdict-detail></span></p>
         </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills-section">
-        <div class="section-container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Automation & Scripting</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Playwright</span>
-                        <span class="skill-tag">Selenium (C#)</span>
-                        <span class="skill-tag">PowerShell</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">CI/CD</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Backend & Infrastructure</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">REST APIs</span>
-                        <span class="skill-tag">Postman</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">BigQuery</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Azure DevOps</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>AI-Assisted QA</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">ChatGPT</span>
-                        <span class="skill-tag">Claude</span>
-                        <span class="skill-tag">Gemini</span>
-                        <span class="skill-tag">LLM Integration</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Testing Methodologies</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Exploratory Testing</span>
-                        <span class="skill-tag">Root Cause Analysis</span>
-                        <span class="skill-tag">E2E Testing</span>
-                        <span class="skill-tag">Regression Testing</span>
-                    </div>
-                </div>
-            </div>
+        <div class="inject" data-inject>
+          <p class="inject__ask">Now break it. Each control puts a real defect into this page, and the assertion that catches it turns red.</p>
+          <div class="inject__row">
+            <button class="btn" type="button" data-fault="alt">Remove an accessible name</button>
+            <button class="btn" type="button" data-fault="heading">Skip a heading level</button>
+            <button class="btn" type="button" data-fault="target">Shrink a tap target</button>
+            <button class="btn btn--revert" type="button" data-fault-revert disabled>Revert</button>
+          </div>
+          <p class="inject__state" role="status" aria-live="polite" data-fault-state>No faults injected. The page is in its shipped state.</p>
         </div>
-    </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience-section">
-        <div class="section-container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Backend QA Engineer</h3>
-                            <span class="company">Firearc, Herzeliya Pituah</span>
-                            <span class="period">2025 - Present</span>
-                        </div>
-                        <ul>
-                            <li>AI-Driven Strategy: Leveraged AI tools to automate test-case generation for complex backend scenarios</li>
-                            <li>Release Ownership: Solely responsible for production release approvals with hybrid manual/automated testing</li>
-                            <li>Data & API Validation: Deep-dive testing on cloud-based SaaS systems using SQL and BigQuery</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>QA Engineer & Automation</h3>
-                            <span class="company">Bolt Tech, Petah Tikva</span>
-                            <span class="period">2021 - 2025</span>
-                        </div>
-                        <ul>
-                            <li>Core System Migration: Led QA lifecycle for mission-critical Rule Engine migration (Legacy to C#)</li>
-                            <li>E2E & CRM Validation: Complex feature validation and end-to-end testing with CRM synchronization</li>
-                            <li>Automation Framework Lead: Designed and maintained scalable E2E test suites using Selenium (C#)</li>
-                            <li>System Reliability: Identified critical edge cases in high-scale backend infrastructures</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · SUBSTANTIATION · flow + reveal. Quiet after the peak. -->
+  <section id="artifacts" class="act sc-section section--flow">
+    <div class="sc-wrap">
+      <div data-sc-in data-sc-stagger="70">
+        <div class="head">
+          <h2 class="head__h">Artifacts</h2>
+          <p class="head__sub">Public repositories. Both are automation suites, both run.</p>
         </div>
-    </section>
+      </div>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications-section">
-        <div class="section-container">
-            <h2 class="section-title">Certifications</h2>
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <div class="cert-icon">🧠</div>
-                    <h3>AI Automation</h3>
-                    <p>Certified in intelligent test automation and AI-accelerated QA workflows.</p>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">📜</div>
-                    <h3>Cloud QA</h3>
-                    <p>Proven expertise in cloud-native system validation and distributed backend testing.</p>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">⚙️</div>
-                    <h3>DevOps Testing</h3>
-                    <p>Focused on CI/CD validation, release readiness, and reliability engineering for fast delivery.</p>
-                </div>
-            </div>
+      <div class="arts">
+        <article class="art" data-sc-reveal="up" data-sc-reveal-at="0.05 0.4">
+          <h3 class="art__h">ebay-qa-automation</h3>
+          <dl class="art__spec">
+            <div><dt>stack</dt><dd>Playwright, Selenium</dd></div>
+            <div><dt>scope</dt><dd>End-to-end commerce flows</dd></div>
+          </dl>
+          <p class="art__body">An automation framework for Ebay flows, with AI-assisted generation of the test cases behind it.</p>
+          <a class="art__link" href="https://github.com/Abramovichraz/ebay-qa-automation/tree/main" target="_blank" rel="noopener noreferrer">Open repository<span aria-hidden="true"> &rsaquo;</span></a>
+        </article>
+
+        <article class="art" data-sc-reveal="up" data-sc-reveal-at="0.12 0.5">
+          <h3 class="art__h">wikipedia-playwright-tests</h3>
+          <dl class="art__spec">
+            <div><dt>stack</dt><dd>Playwright</dd></div>
+            <div><dt>scope</dt><dd>Cross-browser coverage</dd></div>
+          </dl>
+          <p class="art__body">End-to-end tests over Wikipedia flows, written for reliability across browser engines.</p>
+          <a class="art__link" href="https://github.com/Abramovichraz/wikipedia-playwright-tests" target="_blank" rel="noopener noreferrer">Open repository<span aria-hidden="true"> &rsaquo;</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · READINESS · pin + a real input. The close is something you type in. -->
+  <section id="contact" class="act" data-sc-act="pin" data-sc-span="1.3">
+    <div data-sc-stage class="stage stage--close">
+      <div class="panel panel--close" data-sc-cue="0 1 0 0">
+
+        <div class="panel__head">
+          <h2 class="panel__title">Contact</h2>
+          <span class="panel__note">Type it here. The button opens it in your own mail client, already filled in.</span>
         </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects-section">
-        <div class="section-container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Ebay Automation</h3>
-                        <div class="project-tech">
-                            <span>Playwright</span>
-                            <span>Selenium</span>
-                            <span>AI Testing</span>
-                        </div>
-                    </div>
-                    <p>Comprehensive automation framework for Ebay testing with AI-powered test generation and execution.</p>
-                    <a href="https://github.com/Abramovichraz/ebay-qa-automation/tree/main" target="_blank" class="project-link">View on GitHub →</a>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Wikipedia Playwright Tests</h3>
-                        <div class="project-tech">
-                            <span>Playwright</span>
-                            <span>Automation</span>
-                            <span>Web Testing</span>
-                        </div>
-                    </div>
-                    <p>End-to-end automated tests for Wikipedia flows using Playwright, built for reliability and browser coverage.</p>
-                    <a href="https://github.com/Abramovichraz/wikipedia-playwright-tests" target="_blank" class="project-link">View on GitHub →</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        <form class="composer" data-composer>
+          <label class="composer__label" for="msg">Message</label>
+          <textarea class="composer__input" id="msg" name="msg" rows="3" placeholder="We are hiring a QA engineer for a backend team."></textarea>
+          <div class="composer__row">
+            <button class="btn btn--primary" type="submit">Email Raz</button>
+            <span class="composer__hint" data-composer-hint>Opens your mail app. Nothing is sent from this page.</span>
+          </div>
+        </form>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="section-container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <span>Netanya, Israel</span>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📞</div>
-                    <span>052-4385149</span>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">✉️</div>
-                    <span>abramovichraz@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">💼</div>
-                    <a href="https://linkedin.com/in/raz-abramovich" target="_blank">LinkedIn Profile</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        <ul class="direct">
+          <li><span class="direct__k">email</span><a href="mailto:abramovichraz@gmail.com">abramovichraz@gmail.com</a></li>
+          <li><span class="direct__k">phone</span><a href="tel:+972524385149">052-4385149</a></li>
+          <li><span class="direct__k">linkedin</span><a href="https://linkedin.com/in/raz-abramovich" target="_blank" rel="noopener noreferrer">raz-abramovich</a></li>
+          <li><span class="direct__k">based</span><span>Netanya, Israel</span></li>
+        </ul>
 
-    <script src="script.js"></script>
+        <footer class="foot">
+          <span>Raz Abramovich</span>
+          <span class="foot__note">This page tested itself in front of you.</span>
+        </footer>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="scrollcraft.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
